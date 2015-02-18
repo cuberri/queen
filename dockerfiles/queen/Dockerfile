@@ -1,5 +1,7 @@
 #
-# queenjs workspace
+# This is a simle queen workspace
+# It will download queenjs, build it and install it based on the documentation
+# See : https://github.com/oztu/queen/wiki/Hacking-Queen
 #
 FROM node:latest
 MAINTAINER Christophe Uberri <cuberri@gmail.com>
@@ -29,12 +31,3 @@ RUN grunt
 # Make it executable
 WORKDIR bin
 RUN chmod u+x queen
-
-# Execute queen and tell the server side to work with the server example script
-# provided in the queenjs website
-# Allow to override the server side script by using ENTRYPOINT and CMD
-ENTRYPOINT ["./queen", "-c", "0.0.0.0:9300"]
-CMD ["http://queenjs.com/server-example.js"]
-
-# Using default queenjs port
-EXPOSE 9300
