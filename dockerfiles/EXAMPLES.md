@@ -12,8 +12,8 @@ $ docker run -d -p 9300:9300 --name guessapp guessapp
 
 The browsers can connect to http://localhost:9300 to be captured. The browsers will try to guess the server number. The server will exit (and the container too) once the numer is guessed.
 
-Launching a queen server
-------------------------
+Launching a 'pure' queen server and submit a task
+-------------------------------------------------
 
 In this example, we create a queen docker container that will act as a pure queen server.
 
