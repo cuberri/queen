@@ -21,7 +21,7 @@ This image is based on the _queen_ image. Be sure to build it before this one.
 
 ```bash
 dockerfiles $ docker build -t guessapp guessapp/
-dockerfiles $ doker run -d -p 9300:9300 --name guessapp guessapp
+dockerfiles $ docker run -d -p 9300:9300 --name guessapp guessapp
 ```
 
 Point your browser on localhost:9300 and it will begin guessing numbers.
