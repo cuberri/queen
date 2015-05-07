@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Queen</title>
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/queen.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=820, initial-scale=auto, user-scalable=yes">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--> 
+
+<style>
+  html{width:820px;}
+  body{font-family: 'Lora'; padding:50px; width:820px;}
+  h1,h2,h3,p{font-family: 'Lora';}
+  #logo {height:400px; width:400px;}
+  #title{
+    min-height:400px;
+  }
+
+  #title div{
+    vertical-align: top;
+    display:inline-block;
+  }
+  h1{
+    padding-left:20px;
+    padding-top:120px;
+    font-family: 'Lora'; 
+    font-weight: bold;
+    font-size:120px;
+  }
+  h2{
+    padding-left:20px;
+    margin-top:10px;
+    margin-left:7px;
+    text-align: center;
+  }
+
+  div#links{
+    display:block;
+    padding-left:20px;
+    margin-top:30px;
+    text-align:center;
+  }
+  #links a{
+    margin:25px;
+    font-size:24px;  
+  }
+
+
+  #body{
+    line-height:150%;
+    padding:20px;
+    width:820px;
+  }
+  a{
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  h3{
+  font-weight:bold;
+    font-size:26px;
+    margin-top:50px;
+  }
+  p{line-height:150%; margin:20px 0px;}
+  pre{display:inline;margin:0px 10px;}
+
+  ol{list-style-type:decimal;padding-left:20px;}
+  ul{list-style-type:square; padding-left:20px;}
+
+  #credit{margin-top:50px;}
+
+</style>
+
+  </head>
+  <body>
+    <a href="https://github.com/oztu/queen"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <div id="title">
+        <img id="logo" src="resources/queen-bee.png"/>
+        <div>
+          <h1>Queen</h1>
+          <h2>Runs scripts on many browsers</h2>
+          <div id="links">
+            <a href="https://github.com/oztu/queen/wiki/Use">Use</a>
+            <a href="https://github.com/oztu/queen/wiki/How-Queen-Works">Learn</a>
+            <a href="https://github.com/oztu/queen/wiki/Hacking-Queen">Develop</a>
+          </div>
+        </div>
+    </div>
+
+    <div id="body">
+        <h3>A platform for running scripts on many browsers</h3>
+        <p>
+          Let's say you want to play a game where you write down a number and others try to
+          guess it. You gather some friends and tell them to start giving numbers at you.
+          Your friends keep giving you random numbers until one of them gets it right.
+        </p>
+        <p>
+          Now imagine your friends are browsers, and the game is a script which tells browsers 
+          how to play, and waits for the right number to be guessed. This makes you the Queen Server.
+          The Queen Servers allows you to perform distributed tasks on many browsers -- a platform for
+          running scripts on many browsers.
+        </p>
+        <p>
+          Let's run the example:
+
+          <ol>
+            <li>Install <a href="http://nodejs.org/">Node.js</a> version 0.8 or higher</li>
+            <li>In your terminal, run: <pre><span id="sudo">sudo </span>npm install -g queen</pre></li>
+            <li>Run: <pre>queen -c localhost:9300 <a href="http://queenjs.com/server-example.js">http://queenjs.com/server-example.js</a></pre></li>
+            <li><a href="http://localhost:9300/" target="_blank">Click here</a> and watch your terminal.</li>
+          </ol>
+        </p>
+        <p>
+          Here's what happened:
+          <ol>
+            <li>You installed software that allows you to run JavaScript code through the command line.</li>
+            <li>You installed queen using a package manager that comes with Node.</li>
+            <li>You asked queen to start capturing browsers on localhost port 9300 and run <a href="http://queenjs.com/server-example.js">this server-side queen script</a>.</li>
+            <li>You pointed your browser to the queen server, allowing queen to push code that the server-side script requested to run on browsers (the "client-side script"). When <a href="http://queenjs.com/client-example.js">this client-side script</a> loaded, it started reporting back to the server-side script random number guesses. Once the server-side script saw the correct number, it ended the process.</li>
+          </ol>
+        <p>
+
+        <h3>It's not for guessing numbers</h3>
+        <p>
+          Queen is a server which captures browsers and then is able to push scripts to them to run in a clean context
+          (an iframe). Here are somethings it can do out of the box:
+
+          <ul>
+            <li>Bidirectional communication between your client-side and server-side script (using <a href="http://socket.io/">socket.io</a>).</li>
+            <li>Run scripts on browsers connected to a central Queen server remotely using a thin-client (<a href="https://github.com/turn/queen-remote">queen-remote</a>).</li>
+            <li>Connect browsers automatically using <a href="http://seleniumhq.org/">Selenium</a>, <a href="http://www.browserstack.com">BrowserStack</a>, or <a href="https://saucelabs.com/">SauceLabs</a>.</li>
+            <li>Automatically detects and recovers unresponsive browsers.</li>
+            <li>Target browsers based on browser type/version, operating system, or capabilities (anything <a href="http://modernizr.com/">Modernizr</a> can detect).</li>
+            <li>Run scripts via command line, configuration file, or import Queen into your own project as a library.</li>
+            <li>Can run lists of scripts or an HTML files.</li>
+            <li><a href="monitor.png">Monitoring</a> of connected browsers and active jobs.</li>
+          </ul>
+        </p>
+        
+        <p>Queen is the foundation of <a href="http://thrilljs.com">Thrill</a>, a test runner for web applications.
+
+        <h3>Rule your Browser Kingdom</h3>
+        <p>
+          Queen bears the Apache License 2.0. <a href="https://github.com/oztu/queen/wiki/Hacking-Queen">Read this to get starting on hacking queen</a>. Your contributions are welcome at <a href="https://github.com/oztu/queen">GitHub</a>.</p>
+        <div id="credit">
+          Created by <a href="https://github.com/oztu">Ozan</a> at <a href="http://www.turn.com/platform">Turn</a>.
+        </div>
+    </div>
+    <script>
+    if(~navigator.userAgent.indexOf("Windows")){
+      document.getElementById('sudo').innerText = "";
+    }
+    </script>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+        <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-4017245-7");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+  </body>
+</html>
