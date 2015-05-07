@@ -7,7 +7,7 @@ This Dockerfile builds a base queen image containg the queen binary. The build p
 
 Please have a look at the Dockerfile for the details about node version and stuff.
 
-Be sure to build this image before anyone else.
+Be sure to build this image before any others.
 
 ```bash
 dockerfiles $ docker build -t queen queen/
